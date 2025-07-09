@@ -2,18 +2,21 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\TokenController;
+use App\Http\Controllers\Api\FichadaController;
+use App\Http\Controllers\Api\EntidadController;
+use App\Http\Controllers\Api\ProductoController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+// Genera token
+Route::post('/token', [TokenController::class, 'generateToken']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('check.custom.token')->group(function () {
+    // Rutas para fichadas protegidas por middleware
+    Route::apiResource('fichadas', FichadaController::class);
 });
+
+// Crear entidad
+Route::post('/entidades', [EntidadController::class, 'store']);
+
+// Crear producto
+Route::post('/productos', [ProductoController::class, 'store']);

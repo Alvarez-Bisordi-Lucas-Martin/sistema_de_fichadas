@@ -1,0 +1,423 @@
+{
+	"info": {
+		"_postman_id": "f68e8c64-e540-48a2-8d99-702244d6ca4f",
+		"name": "Sistema de Fichadas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36315952"
+	},
+	"item": [
+		{
+			"name": "01-Crear Entidad",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"\r",
+							"pm.collectionVariables.set('entidad_id', response.id);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Tup",
+							"type": "text"
+						},
+						{
+							"key": "descripcion",
+							"value": "Tup v1",
+							"type": "text"
+						},
+						{
+							"key": "imagen",
+							"type": "file",
+							"src": "postman-cloud:///1f05c8eb-1f46-4260-a5ea-01d1f9ac55c4",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_base}}/api/entidades",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"api",
+						"entidades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02-Crear Producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"\r",
+							"pm.collectionVariables.set('producto_id', response.id);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Tup",
+							"type": "text"
+						},
+						{
+							"key": "descripcion",
+							"value": "Tup v1",
+							"type": "text"
+						},
+						{
+							"key": "entidad_id",
+							"value": "{{entidad_id}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_base}}/api/productos",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03-Generar Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"\r",
+							"pm.collectionVariables.set('token', response.token);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "producto_id",
+							"value": "{{producto_id}}",
+							"type": "text"
+						},
+						{
+							"key": "producto_nombre",
+							"value": "Tup",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_base}}/api/token",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"api",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04-Listar Fichadas",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url_base}}/api/fichadas",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"api",
+						"fichadas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05-Crear Fichada",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"\r",
+							"pm.collectionVariables.set('fichada_id', response.id);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fecha_hora",
+							"value": "2025-07-09 12:00:00",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "salida",
+							"type": "text"
+						},
+						{
+							"key": "imagen",
+							"type": "file",
+							"src": "postman-cloud:///1f03be9a-2194-4830-a69e-4e6f3d04d4c1",
+							"disabled": true
+						},
+						{
+							"key": "producto_id",
+							"value": "{{producto_id}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_base}}/api/fichadas",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"api",
+						"fichadas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06-Obtener Fichada",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url_base}}/api/fichadas/{{fichada_id}}",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"api",
+						"fichadas",
+						"{{fichada_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07-Editar Fichada",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "_method",
+							"value": "PUT",
+							"type": "text"
+						},
+						{
+							"key": "fecha_hora",
+							"value": "2025-07-09 08:00:00",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "entrada",
+							"type": "text"
+						},
+						{
+							"key": "imagen",
+							"type": "file",
+							"src": "postman-cloud:///1f03be9a-2194-4830-a69e-4e6f3d04d4c1",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_base}}/api/fichadas/{{fichada_id}}",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"api",
+						"fichadas",
+						"{{fichada_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "08-Eliminar Fichada",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url_base}}/api/fichadas/{{fichada_id}}",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"api",
+						"fichadas",
+						"{{fichada_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "entidad_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "producto_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "fichada_id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

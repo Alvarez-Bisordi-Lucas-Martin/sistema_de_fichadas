@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class TokenController extends Controller
 {
     // Genera token para producto valido
-    public function generateToken(Request $request)
+    public function generate_token(Request $request)
     {
         $request->validate([
             'producto_id' => 'required|integer|exists:productos,id',
@@ -34,7 +34,7 @@ class TokenController extends Controller
         // Guarda token con hash y expiracion
         DB::table('tokens')->updateOrInsert(
             ['producto_id' => $producto->id],
-            ['token' => hash('sha256', $token), 'expires_at' => $expires_at, 'created_at' => now()]
+            ['token' => hash('sha256', $token), 'expires_at' => $expires_at, 'created_at' => now(), 'updated_at' => now()]
         );
 
         return response()->json([

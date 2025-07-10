@@ -8,16 +8,16 @@ use Illuminate\Http\Request;
 
 class ProductoController extends Controller
 {
-    // Crea nuevo producto validado
+    // Crea nuevo producto validando entrada
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $data = $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
             'entidad_id' => 'required|exists:entidades,id'
         ]);
 
-        $producto = Producto::create($validated);
+        $producto = Producto::create($data);
 
         return response()->json($producto, 201);
     }

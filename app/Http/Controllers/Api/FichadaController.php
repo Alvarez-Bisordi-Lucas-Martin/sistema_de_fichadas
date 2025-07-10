@@ -17,22 +17,18 @@ class FichadaController extends Controller
     // Crea fichada con producto_id del token validado, manejando imagen como archivo
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $data = $request->validate([
             'fecha_hora' => 'required|date',
             'tipo' => 'required|in:entrada,salida',
-            'imagen' => 'nullable|file|mimes:jpg,jpeg,png,gif'
+            'imagen' => 'nullable|image|max:4096000',
+            'producto_id' => 'required|exists:productos,id'
         ]);
 
-        $fichada = new Fichada();
-        $fichada->fecha_hora = $validated['fecha_hora'];
-        $fichada->tipo = $validated['tipo'];
-        $fichada->producto_id = $request->producto_id;
-
-        if ($request->hasFile('imagen') && $request->file('imagen')->isValid()) {
-            $fichada->imagen = file_get_contents($request->file('imagen')->getRealPath());
+        if ($request->hasFile('imagen')) {
+            $data['imagen'] = file_get_contents($request->file('imagen')->getRealPath());
         }
 
-        $fichada->save();
+        $fichada = Fichada::create($data);
 
         return response()->json($fichada, 201);
     }
@@ -46,23 +42,18 @@ class FichadaController extends Controller
     // Actualiza fichada con datos validados y manejo de imagen como archivo
     public function update(Request $request, Fichada $fichada)
     {
-        $validated = $request->validate([
-            'fecha_hora' => 'sometimes|date',
-            'tipo' => 'sometimes|in:entrada,salida',
-            'imagen' => 'nullable|file|mimes:jpg,jpeg,png,gif'
+        $data = $request->validate([
+            'fecha_hora' => 'nullable|date',
+            'tipo' => 'nullable|in:entrada,salida',
+            'imagen' => 'nullable|image|max:4096000',
+            'producto_id' => 'nullable|exists:productos,id'
         ]);
 
-        if (isset($validated['fecha_hora'])) {
-            $fichada->fecha_hora = $validated['fecha_hora'];
-        }
-        if (isset($validated['tipo'])) {
-            $fichada->tipo = $validated['tipo'];
-        }
-        if ($request->hasFile('imagen') && $request->file('imagen')->isValid()) {
-            $fichada->imagen = file_get_contents($request->file('imagen')->getRealPath());
+        if ($request->hasFile('imagen')) {
+            $data['imagen'] = file_get_contents($request->file('imagen')->getRealPath());
         }
 
-        $fichada->save();
+        $fichada->update($data);
 
         return response()->json($fichada);
     }

@@ -34,19 +34,19 @@
 					"formdata": [
 						{
 							"key": "nombre",
-							"value": "Tup",
-							"type": "text"
-						},
-						{
-							"key": "descripcion",
 							"value": "Tup v1",
 							"type": "text"
 						},
 						{
+							"key": "descripcion",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
 							"key": "imagen",
 							"type": "file",
-							"src": "postman-cloud:///1f05c8eb-1f46-4260-a5ea-01d1f9ac55c4",
-							"disabled": true
+							"src": "postman-cloud:///1f05c8eb-1f46-4260-a5ea-01d1f9ac55c4"
 						}
 					]
 				},
@@ -73,6 +73,7 @@
 							"const response = pm.response.json();\r",
 							"\r",
 							"pm.collectionVariables.set('producto_id', response.id);\r",
+							"pm.collectionVariables.set('producto_nombre', response.nombre);\r",
 							""
 						],
 						"type": "text/javascript",
@@ -91,13 +92,14 @@
 					"formdata": [
 						{
 							"key": "nombre",
-							"value": "Tup",
+							"value": "Tup v1",
 							"type": "text"
 						},
 						{
 							"key": "descripcion",
-							"value": "Tup v1",
-							"type": "text"
+							"value": "",
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "entidad_id",
@@ -152,7 +154,7 @@
 						},
 						{
 							"key": "producto_nombre",
-							"value": "Tup",
+							"value": "{{producto_nombre}}",
 							"type": "text"
 						}
 					]
@@ -231,19 +233,18 @@
 					"formdata": [
 						{
 							"key": "fecha_hora",
-							"value": "2025-07-09 12:00:00",
+							"value": "2025-07-10 08:00:00",
 							"type": "text"
 						},
 						{
 							"key": "tipo",
-							"value": "salida",
+							"value": "entrada",
 							"type": "text"
 						},
 						{
 							"key": "imagen",
 							"type": "file",
-							"src": "postman-cloud:///1f03be9a-2194-4830-a69e-4e6f3d04d4c1",
-							"disabled": true
+							"src": "postman-cloud:///1f03be9a-2194-4830-a69e-4e6f3d04d4c1"
 						},
 						{
 							"key": "producto_id",
@@ -317,18 +318,24 @@
 						},
 						{
 							"key": "fecha_hora",
-							"value": "2025-07-09 08:00:00",
+							"value": "2025-07-10 12:00:00",
 							"type": "text"
 						},
 						{
 							"key": "tipo",
-							"value": "entrada",
+							"value": "salida",
 							"type": "text"
 						},
 						{
 							"key": "imagen",
 							"type": "file",
 							"src": "postman-cloud:///1f03be9a-2194-4830-a69e-4e6f3d04d4c1",
+							"disabled": true
+						},
+						{
+							"key": "producto_id",
+							"value": "{{producto_id}}",
+							"type": "text",
 							"disabled": true
 						}
 					]
@@ -411,6 +418,11 @@
 		},
 		{
 			"key": "producto_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "producto_nombre",
 			"value": "",
 			"type": "string"
 		},

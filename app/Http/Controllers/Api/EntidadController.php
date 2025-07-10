@@ -11,21 +11,17 @@ class EntidadController extends Controller
     // Crea nueva entidad validando entrada
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $data = $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
-            'imagen' => 'nullable|file|mimes:jpg,jpeg,png,gif'
+            'imagen' => 'nullable|image|max:4096000'
         ]);
 
-        $entidad = new Entidad();
-        $entidad->nombre = $validated['nombre'];
-        $entidad->descripcion = $validated['descripcion'] ?? null;
-
-        if ($request->hasFile('imagen') && $request->file('imagen')->isValid()) {
-            $entidad->imagen = file_get_contents($request->file('imagen')->getRealPath());
+        if ($request->hasFile('imagen')) {
+            $data['imagen'] = file_get_contents($request->file('imagen')->getRealPath());
         }
 
-        $entidad->save();
+        $entidad = Entidad::create($data);
 
         return response()->json($entidad, 201);
     }

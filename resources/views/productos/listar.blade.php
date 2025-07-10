@@ -61,7 +61,7 @@
                                                 {{ $producto->nombre }}
                                             </td>
                                             <td>
-                                                {{ $producto->descripcion }}
+                                                {{ $producto->descripcion ?? '-' }}
                                             </td>
                                             <td>
                                                 <i class="fas fa-building fa-xl"></i>

@@ -11,6 +11,7 @@ class UserController extends Controller
     public function listar()
     {
         $usuarios = User::all();
+
         return view('usuarios.listar', [
             'usuarios' => $usuarios,
             'sidebar_active' => 'usuarios'
@@ -26,19 +27,16 @@ class UserController extends Controller
 
     public function guardar(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
             'email_verified_at' => 'nullable|date'
         ]);
 
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'email_verified_at' => $request->email_verified_at ?? null
-        ]);
+        $data['password'] = Hash::make($data['password']);
+
+        User::create($data);
 
         return redirect()->route('usuarios.listar')->with('success', 'Usuario creado correctamente.');
     }
@@ -46,6 +44,7 @@ class UserController extends Controller
     public function editar($id)
     {
         $usuario = User::findOrFail($id);
+        
         return view('usuarios.editar', [
             'usuario' => $usuario,
             'sidebar_active' => 'usuarios'
@@ -56,21 +55,21 @@ class UserController extends Controller
     {
         $usuario = User::findOrFail($id);
 
-        $request->validate([
+        $data = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email,' . $usuario->id,
             'password' => 'nullable|min:6',
             'email_verified_at' => 'nullable|date'
         ]);
 
-        $usuario->name = $request->name;
-        $usuario->email = $request->email;
         if ($request->filled('password')) {
-            $usuario->password = Hash::make($request->password);
+            $data['password'] = Hash::make($data['password']);
         }
-        $usuario->email_verified_at = $request->email_verified_at ?? null;
+        else {
+            unset($data['password']);
+        }
 
-        $usuario->save();
+        $usuario->update($data);
 
         return redirect()->route('usuarios.listar')->with('success', 'Usuario actualizado.');
     }

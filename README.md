@@ -69,12 +69,33 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 - [Modelo Entidad Relacion y Modelo Relacional](https://drive.google.com/drive/folders/1B3dY-ZtLkK99CSc54YWwFh00eTbk3Lwt?usp=sharing)
 
+## Configuracón
+
+- Setear el `max_allowed_packet` en `64M` dentro del archivo `xampp/mysql/bin/my.ini` en la sección `[mysqld]`.
+
 ## Ejecutar
 
+- Instala las dependencias del proyecto:
 ``` shell
-    composer install
-    php artisan key:generate
-    php artisan migrate
-    php artisan db:seed
-    php artisan serve
+composer install
+```
+
+- Genera la clave de la aplicación:
+``` shell
+php artisan key:generate
+```
+
+- Ejecuta las migraciones de la base de datos:
+``` shell
+php artisan migrate
+```
+
+- Inserta datos iniciales en la base:
+``` shell
+php artisan db:seed
+```
+
+- Levanta el servidor local de desarrollo:
+``` shell
+php artisan serve
 ```

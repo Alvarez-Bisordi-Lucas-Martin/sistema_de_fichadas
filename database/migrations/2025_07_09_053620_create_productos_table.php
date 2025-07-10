@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nombre'); // Nombre del producto
-            $table->string('descripcion'); // Descripcion del producto
+            $table->string('descripcion')->nullable(); // Descripcion del producto opcional
             $table->foreignId('entidad_id')->constrained('entidades')->onDelete('cascade'); // FK entidad con eliminacion en cascada
         });
     }

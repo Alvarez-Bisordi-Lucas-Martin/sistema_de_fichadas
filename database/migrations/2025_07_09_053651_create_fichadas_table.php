@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -17,6 +18,8 @@ return new class extends Migration
             $table->binary('imagen')->nullable(); // Imagen opcional
             $table->foreignId('producto_id')->constrained('productos')->onDelete('cascade'); // FK producto con eliminacion en cascada
         });
+
+        DB::statement('ALTER TABLE fichadas MODIFY imagen LONGBLOB NULL');
     }
 
     // Elimina tabla fichadas

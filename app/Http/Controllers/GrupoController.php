@@ -12,6 +12,7 @@ class GrupoController extends Controller
     public function listar()
     {
         $grupos = Grupo::all();
+        
         return view('grupos.listar', [
             'grupos' => $grupos,
             'sidebar_active' => 'grupos'
@@ -81,8 +82,9 @@ class GrupoController extends Controller
             'permisos.*' => 'exists:permisos,id'
         ]);
 
-        $grupo->nombre = $request->nombre;
-        $grupo->save();
+        $grupo->update([
+            'nombre' => $request->nombre
+        ]);
         
         $grupo->usuarios()->sync($request->usuarios ?? []);
         $grupo->permisos()->sync($request->permisos ?? []);

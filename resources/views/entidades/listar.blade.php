@@ -62,7 +62,7 @@
                                                 <span>{{ $entidad->nombre }}</span>
                                             </td>
                                             <td>
-                                                {{ $entidad->descripcion }}
+                                                {{ $entidad->descripcion ?? '-' }}
                                             </td>
                                             <td class="text-center">
                                                 @if ($entidad->imagen)

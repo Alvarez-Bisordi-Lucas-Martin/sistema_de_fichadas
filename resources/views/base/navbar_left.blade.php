@@ -29,14 +29,14 @@
                     <hr class="hr-horizontal">
                 </li>
 
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link{{ (isset($sidebar_active) && $sidebar_active === 'usuarios') ? ' active' : '' }}" href="{{ route('usuarios.listar') }}" aria-current="page">
                         <i class="fa-solid fa-user-alt"></i>
                         <span class="item-name">Usuarios</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link{{ (isset($sidebar_active) && $sidebar_active === 'groups') ? ' active' : '' }}" href="{{ route('groups.listar') }}" aria-current="page">
+                    <a class="nav-link{{ (isset($sidebar_active) && $sidebar_active === 'grupos') ? ' active' : '' }}" href="{{ route('grupos.listar') }}" aria-current="page">
                         <i class="fa-solid fa-user-group"></i>
                         <span class="item-name">Grupos</span>
                     </a>
@@ -58,7 +58,7 @@
                         <i class="fa-solid fa-clock"></i>
                         <span class="item-name">Fichadas</span>
                     </a>
-                </li> --}}
+                </li>
             </ul>
         </div>
     </div>

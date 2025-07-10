@@ -1,11 +1,13 @@
 /* ************************************************ SIDEBAR ************************************************ */
 
-#sidebar-parent .nav-link i {
-    width: 20px;
-    height: auto;
+#sidebar-parent .nav-link {
     display: flex;
     align-items: center;
-    justify-content: center;
+}
+
+#sidebar-parent .nav-link svg {
+    width: 20px;
+    height: 20px;
 }
 
 .sidebar-color-logo {

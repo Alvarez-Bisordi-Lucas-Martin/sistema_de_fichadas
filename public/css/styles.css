@@ -55,7 +55,7 @@
 .table-ecom {
     width: 100%;
     margin: 0 auto;
-    padding-bottom: 240px;
+    padding-bottom: 128px;
     border: 2px solid var(--color-principal);
     border-radius: 8px;
     border-spacing: 0;
@@ -100,10 +100,11 @@
 }
 
 .entity-logo {
-    width: 24px;
-    height: 24px;
-    vertical-align: middle;
-    margin-right: 5px;
+    max-width: 100px;
+    height: 40px;
+    padding: 2px;
+    background-color: var(--color-principal);
+    border-radius: 4px;
     object-fit: contain;
 }
 

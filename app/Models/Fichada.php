@@ -11,6 +11,10 @@ class Fichada extends Model
 
     protected $fillable = ['fecha_hora', 'tipo', 'imagen', 'producto_id'];
 
+    protected $casts = [
+        'fecha_hora' => 'datetime'
+    ];
+
     // Relacion fichada pertenece a producto
     public function producto()
     {

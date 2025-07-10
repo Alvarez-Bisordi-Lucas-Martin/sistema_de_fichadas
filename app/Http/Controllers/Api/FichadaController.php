@@ -20,7 +20,7 @@ class FichadaController extends Controller
         $validated = $request->validate([
             'fecha_hora' => 'required|date',
             'tipo' => 'required|in:entrada,salida',
-            'imagen' => 'nullable|file|mimes:jpeg,png,gif',
+            'imagen' => 'nullable|file|mimes:jpg,jpeg,png,gif',
         ]);
 
         $fichada = new Fichada();
@@ -49,7 +49,7 @@ class FichadaController extends Controller
         $validated = $request->validate([
             'fecha_hora' => 'sometimes|date',
             'tipo' => 'sometimes|in:entrada,salida',
-            'imagen' => 'nullable|file|mimes:jpeg,png,gif',
+            'imagen' => 'nullable|file|mimes:jpg,jpeg,png,gif',
         ]);
 
         if (isset($validated['fecha_hora'])) {

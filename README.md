@@ -69,6 +69,10 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 - [Modelo Entidad Relacion y Modelo Relacional](https://drive.google.com/drive/folders/1B3dY-ZtLkK99CSc54YWwFh00eTbk3Lwt?usp=sharing)
 
+## Template Base
+
+- [TecDig Lite DashBoard - Free Admin Dashboard Template for Marketing](https://iqonic.design/product/templates/tecdig-lite-free-admin-dashboard-template-for-marketing)
+
 ## Configuracón
 
 - Setear el `max_allowed_packet` en `64M` dentro del archivo `xampp/mysql/bin/my.ini` en la sección `[mysqld]`.

@@ -16,7 +16,7 @@ class TokenController extends Controller
     {
         $request->validate([
             'producto_id' => 'required|integer|exists:productos,id',
-            'producto_nombre' => 'required|string',
+            'producto_nombre' => 'required|string'
         ]);
 
         $producto = Producto::where('id', $request->producto_id)
@@ -39,7 +39,7 @@ class TokenController extends Controller
 
         return response()->json([
             'token' => $token,
-            'expires_at' => $expires_at->toDateTimeString(),
+            'expires_at' => $expires_at->toDateTimeString()
         ]);
     }
 }

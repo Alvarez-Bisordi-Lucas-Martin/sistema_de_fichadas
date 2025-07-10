@@ -90,6 +90,11 @@
     border-color: var(--color-principal);
 }
 
+.dropdown-item:focus {
+    color: #4A3144;
+    background-color: transparent;
+}
+
 /* ************************************************ IMAGES ************************************************ */
 
 .avatar-sm {

@@ -14,7 +14,7 @@ class ProductoController extends Controller
         $validated = $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
-            'entidad_id' => 'required|exists:entidades,id',
+            'entidad_id' => 'required|exists:entidades,id'
         ]);
 
         $producto = Producto::create($validated);

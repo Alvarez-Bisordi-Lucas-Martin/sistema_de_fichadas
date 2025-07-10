@@ -14,7 +14,7 @@ class EntidadController extends Controller
         $validated = $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
-            'imagen' => 'nullable|file|mimes:jpg,jpeg,png,gif',
+            'imagen' => 'nullable|file|mimes:jpg,jpeg,png,gif'
         ]);
 
         $entidad = new Entidad();

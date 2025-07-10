@@ -10,10 +10,24 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-end mb-3">
-                            <a href="#" class="btn btn-primary">
+                            <a href="{{ route('usuarios.crear') }}" class="btn btn-primary">
                                 <i class="fas fa-plus me-2"></i>Nuevo
                             </a>
                         </div>
+
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <div class="d-flex align-items-center">
+                                    <div class="alert-icon me-2">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="alert-message">
+                                        {{ session('success') }}
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                            </div>
+                        @endif
 
                         <div class="table-responsive">
                             <table class="table table-ecom">
@@ -40,15 +54,20 @@
                                                     </button>
                                                     <ul class="dropdown-menu dropdown-menu-end">
                                                         <li>
-                                                            <a class="dropdown-item" href="#">
+                                                            <a class="dropdown-item" href="{{ route('usuarios.editar', $usuario->id) }}">
                                                                 <i class="fas fa-edit me-2"></i>Editar
                                                             </a>
                                                         </li>
                                                         <li><hr class="dropdown-divider"></li>
                                                         <li>
-                                                            <a class="dropdown-item" href="#">
-                                                                <i class="fas fa-trash me-2"></i>Eliminar
-                                                            </a>
+                                                            <form method="POST" action="{{ route('usuarios.eliminar', $usuario->id) }}" onsubmit="return confirm('¿Estás seguro que querés eliminar este usuario?');">
+                                                                @csrf
+                                                                @method('DELETE')
+
+                                                                <button type="submit" class="dropdown-item">
+                                                                    <i class="fas fa-trash me-2"></i>Eliminar
+                                                                </button>
+                                                            </form>
                                                         </li>
                                                     </ul>
                                                 </div>

@@ -11,6 +11,11 @@ use App\Http\Controllers\FichadaController;
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::get('/usuarios/listar', [UserController::class, 'listar'])->name('usuarios.listar');
+Route::get('/usuarios/crear', [UserController::class, 'crear'])->name('usuarios.crear');
+Route::post('/usuarios', [UserController::class, 'guardar'])->name('usuarios.guardar');
+Route::get('/usuarios/{id}/editar', [UserController::class, 'editar'])->name('usuarios.editar');
+Route::put('/usuarios/{id}', [UserController::class, 'actualizar'])->name('usuarios.actualizar');
+Route::delete('/usuarios/{id}', [UserController::class, 'eliminar'])->name('usuarios.eliminar');
 
 Route::get('/grupos/listar', [GrupoController::class, 'listar'])->name('grupos.listar');
 

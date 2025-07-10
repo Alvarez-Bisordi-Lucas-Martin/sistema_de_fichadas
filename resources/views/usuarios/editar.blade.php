@@ -31,7 +31,7 @@
 
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="form-group mb-3 mt-3">
+                                    <div class="form-group mb-3">
                                         <label for="name" class="form-label">Nombre</label>
                                         <input type="text" id="name" name="name" class="form-control" value="{{ old('name', $usuario->name) }}" autocomplete="new-password" required>
                                     </div>

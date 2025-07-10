@@ -30,7 +30,7 @@
 
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="form-group mb-3 mt-3">
+                                    <div class="form-group mb-3">
                                         <label for="nombre" class="form-label">Nombre</label>
                                         <input type="text" id="nombre" name="nombre" class="form-control" required>
                                     </div>

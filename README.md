@@ -68,3 +68,13 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## Diagramas
 
 - [Modelo Entidad Relacion y Modelo Relacional](https://drive.google.com/drive/folders/1B3dY-ZtLkK99CSc54YWwFh00eTbk3Lwt?usp=sharing)
+
+## Ejecutar
+
+``` shell
+    composer install
+    php artisan key:generate
+    php artisan migrate
+    php artisan db:seed
+    php artisan serve
+```

@@ -6,14 +6,14 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class SuperUserSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     public function run()
     {
         // Variables desde .env o valores por defecto
-        $name = env('SUPERUSER_NAME', 'admin');
-        $email = env('SUPERUSER_EMAIL', 'admin@example.com');
-        $password = env('SUPERUSER_PASSWORD', 'admin');
+        $name = env('USER_NAME', 'admin');
+        $email = env('USER_EMAIL', 'admin@example.com');
+        $password = env('USER_PASSWORD', 'admin');
 
         // Crear o actualizar usuario superadmin
         User::updateOrCreate(

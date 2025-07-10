@@ -10,10 +10,12 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-end mb-3">
-                            <a href="#" class="btn btn-primary">
+                            <a href="{{ route('productos.crear') }}" class="btn btn-primary">
                                 <i class="fas fa-plus me-2"></i>Nuevo
                             </a>
                         </div>
+
+                        @include('includes.success_message')
 
                         <div class="table-responsive">
                             <table class="table custom-table">
@@ -40,15 +42,20 @@
                                                     </button>
                                                     <ul class="dropdown-menu dropdown-menu-end">
                                                         <li>
-                                                            <a class="dropdown-item" href="#">
+                                                            <a class="dropdown-item" href="{{ route('productos.editar', $producto->id) }}">
                                                                 <i class="fas fa-edit me-2"></i>Editar
                                                             </a>
                                                         </li>
                                                         <li><hr class="dropdown-divider"></li>
                                                         <li>
-                                                            <a class="dropdown-item" href="#">
-                                                                <i class="fas fa-trash me-2"></i>Eliminar
-                                                            </a>
+                                                            <form method="POST" action="{{ route('productos.eliminar', $producto->id) }}" onsubmit="return confirm('¿Estás seguro que querés eliminar este producto?');">
+                                                                @csrf
+                                                                @method('DELETE')
+
+                                                                <button type="submit" class="dropdown-item">
+                                                                    <i class="fas fa-trash me-2"></i>Eliminar
+                                                                </button>
+                                                            </form>
                                                         </li>
                                                     </ul>
                                                 </div>

@@ -32,6 +32,11 @@ Route::put('/entidades/{id}', [EntidadController::class, 'actualizar'])->name('e
 Route::delete('/entidades/{id}', [EntidadController::class, 'eliminar'])->name('entidades.eliminar');
 
 Route::get('/productos/listar', [ProductoController::class, 'listar'])->name('productos.listar');
+Route::get('/productos/crear', [ProductoController::class, 'crear'])->name('productos.crear');
+Route::post('/productos', [ProductoController::class, 'guardar'])->name('productos.guardar');
+Route::get('/productos/{id}/editar', [ProductoController::class, 'editar'])->name('productos.editar');
+Route::put('/productos/{id}', [ProductoController::class, 'actualizar'])->name('productos.actualizar');
+Route::delete('/productos/{id}', [ProductoController::class, 'eliminar'])->name('productos.eliminar');
 
 Route::get('/fichadas/listar', [FichadaController::class, 'listar'])->name('fichadas.listar');
 Route::get('/fichadas/exportar', [FichadaController::class, 'exportar'])->name('fichadas.exportar');

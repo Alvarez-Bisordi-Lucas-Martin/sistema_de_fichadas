@@ -1,7 +1,7 @@
 @extends('base.base')
 
-@section('title', 'Usuarios')
-@section('page_title', 'Editar Usuario')
+@section('title', 'Entidades')
+@section('page_title', 'Editar Entidad')
 
 @section('content')
     <div class="container-fluid">
@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <form method="post" action="{{ route('usuarios.actualizar', $usuario->id) }}">
+                        <form method="post" action="{{ route('entidades.actualizar', $entidad->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -18,35 +18,37 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group mb-3">
-                                        <label for="name" class="form-label">Nombre</label>
-                                        <input type="text" id="name" name="name" class="form-control" value="{{ old('name', $usuario->name) }}" autocomplete="new-password" required>
+                                        <label for="nombre" class="form-label">Nombre</label>
+                                        <input type="text" id="nombre" name="nombre" class="form-control" value="{{ old('nombre', $entidad->nombre) }}" required>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-group mb-3">
-                                        <label for="email" class="form-label">Correo</label>
-                                        <input type="email" id="email" name="email" class="form-control" value="{{ old('email', $usuario->email) }}" autocomplete="new-password" required>
+                                        <label for="descripcion" class="form-label">Descripción</label>
+                                        <textarea id="descripcion" name="descripcion" class="form-control" rows="2">{{ old('descripcion', $entidad->descripcion) }}</textarea>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-group mb-3">
-                                        <label for="password" class="form-label">Contraseña</label>
-                                        <input type="password" id="password" name="password" class="form-control" autocomplete="new-password">
+                                        <label for="imagen" class="form-label">Imagen</label>
+                                        <input type="file" id="imagen" name="imagen" class="form-control" accept="image/*">
                                     </div>
                                 </div>
 
-                                <div class="col-12">
-                                    <div class="form-group mb-3">
-                                        <label for="email_verified_at" class="form-label">Verificado</label>
-                                        <input type="datetime-local" id="email_verified_at" name="email_verified_at" class="form-control" value="{{ old('email_verified_at', $usuario->email_verified_at?->format('Y-m-d\TH:i')) }}">
+                                @if ($entidad->imagen)
+                                    <div class="col-12">
+                                        <div class="form-group mb-3">
+                                            <label for="imagen-actual" class="form-label">Imagen Actual:</label><br>
+                                            <img src="data:image/jpeg;base64,{{ base64_encode($entidad->imagen) }}" id="imagen-actual" class="imagen-actual" alt="Imagen Actual de la Entidad">
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </div>
 
                             <div class="d-flex justify-content-start gap-3 mt-3">
-                                <a href="{{ route('usuarios.listar') }}" class="btn btn-secondary">
+                                <a href="{{ route('entidades.listar') }}" class="btn btn-secondary">
                                     <i class="fa-solid fa-rotate-left me-2"></i>Volver
                                 </a>
                                 <button type="submit" class="btn btn-primary">

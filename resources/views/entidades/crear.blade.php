@@ -1,7 +1,7 @@
 @extends('base.base')
 
-@section('title', 'Grupos')
-@section('page_title', 'Nuevo Grupo')
+@section('title', 'Entidades')
+@section('page_title', 'Nueva Entidad')
 
 @section('content')
     <div class="container-fluid">
@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <form method="post" action="{{ route('grupos.guardar') }}">
+                        <form method="post" action="{{ route('entidades.guardar') }}" enctype="multipart/form-data">
                             @csrf
 
                             @include('includes.errors_message')
@@ -24,29 +24,21 @@
 
                                 <div class="col-12">
                                     <div class="form-group mb-3">
-                                        <label for="usuarios" class="form-label">Usuarios</label>
-                                        <select id="usuarios" name="usuarios[]" class="form-select" placeholder="Seleccione uno o mas usuarios" multiple>
-                                            @foreach ($usuarios as $usuario)
-                                                <option value="{{ $usuario->id }}">{{ $usuario->email }}</option>
-                                            @endforeach
-                                        </select>
+                                        <label for="descripcion" class="form-label">Descripción</label>
+                                        <textarea id="descripcion" name="descripcion" class="form-control" rows="2"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-group mb-3">
-                                        <label for="permisos" class="form-label">Permisos</label>
-                                        <select id="permisos" name="permisos[]" class="form-select" placeholder="Seleccione uno o mas permisos" multiple>
-                                            @foreach ($permisos as $permiso)
-                                                <option value="{{ $permiso->id }}">{{ $permiso->modelo }} | {{ $permiso->accion }}</option>
-                                            @endforeach
-                                        </select>
+                                        <label for="imagen" class="form-label">Imagen</label>
+                                        <input type="file" id="imagen" name="imagen" class="form-control" accept="image/*">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="d-flex justify-content-start gap-3 mt-3">
-                                <a href="{{ route('grupos.listar') }}" class="btn btn-secondary">
+                                <a href="{{ route('entidades.listar') }}" class="btn btn-secondary">
                                     <i class="fa-solid fa-rotate-left me-2"></i>Volver
                                 </a>
                                 <button type="submit" class="btn btn-primary">

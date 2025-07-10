@@ -18,21 +18,7 @@
                             @csrf
                             @method('PUT')
 
-                            @if ($errors->any())
-                                @foreach ($errors->all() as $error)
-                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                        <div class="d-flex align-items-center">
-                                            <div class="alert-icon me-2">
-                                                <i class="fas fa-exclamation-triangle"></i>
-                                            </div>
-                                            <div class="alert-message">
-                                                {{ $error }}
-                                            </div>
-                                        </div>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-                                    </div>
-                                @endforeach
-                            @endif
+                            @include('includes.errors_message')
 
                             <div class="d-flex flex-column flex-lg-row align-items-start gap-3 mb-3">
                                 <div class="order-2 order-lg-1">
@@ -60,6 +46,15 @@
                                                 <input type="file" id="imagen" name="imagen" class="form-control" accept="image/*">
                                             </div>
                                         </div>
+
+                                        @if ($fichada->imagen)
+                                            <div class="col-12">
+                                                <div class="form-group mb-3">
+                                                    <label for="imagen-actual" class="form-label">Imagen Actual:</label><br>
+                                                    <img src="data:image/jpeg;base64,{{ base64_encode($fichada->imagen) }}" id="imagen-actual" class="imagen-actual" alt="Imagen Actual de la Fichada">
+                                                </div>
+                                            </div>
+                                        @endif
 
                                         <div class="col-12">
                                             <div class="form-group mb-3">

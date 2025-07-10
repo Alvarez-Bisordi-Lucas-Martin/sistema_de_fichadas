@@ -104,6 +104,7 @@ class FichadaController extends Controller
     public function eliminar($id)
     {
         $fichada = Fichada::findOrFail($id);
+        
         $fichada->delete();
 
         return redirect()->route('fichadas.listar')->with('success', 'Fichada eliminada correctamente.');

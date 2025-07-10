@@ -16,7 +16,7 @@
                         </div>
 
                         <div class="table-responsive">
-                            <table class="table table-ecom">
+                            <table class="table custom-table">
                                 <thead>
                                     <tr>
                                         <th>Acciones</th>

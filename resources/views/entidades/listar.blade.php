@@ -10,13 +10,15 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-end mb-3">
-                            <a href="#" class="btn btn-primary">
+                            <a href="{{ route('entidades.crear') }}" class="btn btn-primary">
                                 <i class="fas fa-plus me-2"></i>Nueva
                             </a>
                         </div>
+                        
+                        @include('includes.success_message')
 
                         <div class="table-responsive">
-                            <table class="table table-ecom">
+                            <table class="table custom-table">
                                 <thead>
                                     <tr>
                                         <th>Acciones</th>
@@ -40,15 +42,20 @@
                                                     </button>
                                                     <ul class="dropdown-menu dropdown-menu-end">
                                                         <li>
-                                                            <a class="dropdown-item" href="#">
+                                                            <a class="dropdown-item" href="{{ route('entidades.editar', $entidad->id) }}">
                                                                 <i class="fas fa-edit me-2"></i>Editar
                                                             </a>
                                                         </li>
                                                         <li><hr class="dropdown-divider"></li>
                                                         <li>
-                                                            <a class="dropdown-item" href="#">
-                                                                <i class="fas fa-trash me-2"></i>Eliminar
-                                                            </a>
+                                                            <form method="POST" action="{{ route('entidades.eliminar', $entidad->id) }}" onsubmit="return confirm('¿Estás seguro que querés eliminar esta entidad?');">
+                                                                @csrf
+                                                                @method('DELETE')
+
+                                                                <button type="submit" class="dropdown-item">
+                                                                    <i class="fas fa-trash me-2"></i>Eliminar
+                                                                </button>
+                                                            </form>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -66,7 +73,7 @@
                                             </td>
                                             <td class="text-center">
                                                 @if ($entidad->imagen)
-                                                    <img src="data:image/jpeg;base64,{{ base64_encode($entidad->imagen) }}" class="entity-logo" alt="Imagen de la Entidad">
+                                                    <img src="data:image/jpeg;base64,{{ base64_encode($entidad->imagen) }}" class="imagen-entidad" alt="Imagen de la Entidad">
                                                 @else
                                                     -
                                                 @endif

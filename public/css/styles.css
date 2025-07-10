@@ -52,7 +52,7 @@
 
 /* ************************************************ TABLES ************************************************ */
 
-.table-ecom {
+.custom-table {
     width: 100%;
     margin: 0 auto;
     padding-bottom: 128px;
@@ -63,15 +63,15 @@
     clear: both;
 }
 
-.table-ecom thead {
+.custom-table thead {
     color: var(--color-blanco);
 }
 
-.table-ecom thead tr {
+.custom-table thead tr {
     background: var(--color-principal);
 }
 
-.table-ecom tbody .dropdown-item i {
+.custom-table tbody .dropdown-item i {
     width: 16px;
     height: auto;
 }
@@ -97,18 +97,27 @@
 
 /* ************************************************ IMAGES ************************************************ */
 
-.avatar-sm {
+.imagen-actual {
+    max-width: 250px;
+    height: 125px;
+    background-color: var(--color-principal);
+    border: 1px solid var(--color-principal);
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.imagen-fichada {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.entity-logo {
+.imagen-entidad {
     max-width: 100px;
-    height: 40px;
-    padding: 2px;
+    height: 50px;
     background-color: var(--color-principal);
+    border: 1px solid var(--color-principal);
     border-radius: 4px;
     object-fit: contain;
 }

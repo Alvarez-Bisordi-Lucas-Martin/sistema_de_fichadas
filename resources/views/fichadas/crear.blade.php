@@ -17,21 +17,7 @@
                         <form method="post" action="{{ route('fichadas.guardar') }}" enctype="multipart/form-data">
                             @csrf
 
-                            @if ($errors->any())
-                                @foreach ($errors->all() as $error)
-                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                        <div class="d-flex align-items-center">
-                                            <div class="alert-icon me-2">
-                                                <i class="fas fa-exclamation-triangle"></i>
-                                            </div>
-                                            <div class="alert-message">
-                                                {{ $error }}
-                                            </div>
-                                        </div>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-                                    </div>
-                                @endforeach
-                            @endif
+                            @include('includes.errors_message')
 
                             <div class="d-flex flex-column flex-lg-row align-items-start gap-3 mb-3">
                                 <div class="order-2 order-lg-1">

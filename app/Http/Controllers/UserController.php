@@ -71,14 +71,15 @@ class UserController extends Controller
 
         $usuario->update($data);
 
-        return redirect()->route('usuarios.listar')->with('success', 'Usuario actualizado.');
+        return redirect()->route('usuarios.listar')->with('success', 'Usuario actualizado correctamente.');
     }
 
     public function eliminar($id)
     {
         $usuario = User::findOrFail($id);
+        
         $usuario->delete();
 
-        return redirect()->route('usuarios.listar')->with('success', 'Usuario eliminado.');
+        return redirect()->route('usuarios.listar')->with('success', 'Usuario eliminado correctamente.');
     }
 }

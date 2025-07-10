@@ -4,7 +4,7 @@
             <a class="nav-link py-0 d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="{{ asset('images/defaults/logo.png') }}" alt="User-Profile" class="img-fluid avatar avatar-50 avatar-rounded">
                 <div class="caption ms-3 d-none d-md-block">
-                    <h6 class="mb-0 caption-title">{{-- {{ auth()->user()->username }} --}}</h6>
+                    <h6 class="mb-0 caption-title">{{ auth()->user()->username ?? 'Invitado' }}</h6>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -12,14 +12,14 @@
             </a>
 
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                {{-- <li>
-                    <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                <li>
+                    <form method="POST" action="" style="display: inline;">
                         @csrf
                         <button type="submit" class="dropdown-item">
                             <i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Cerrar sesión
                         </button>
                     </form>
-                </li> --}}
+                </li>
             </ul>
         </li>
     </ul>

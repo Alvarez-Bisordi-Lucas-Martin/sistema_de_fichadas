@@ -95,6 +95,7 @@ class GrupoController extends Controller
     public function eliminar($id)
     {
         $grupo = Grupo::findOrFail($id);
+        
         $grupo->delete();
 
         return redirect()->route('grupos.listar')->with('success', 'Grupo eliminado correctamente.');

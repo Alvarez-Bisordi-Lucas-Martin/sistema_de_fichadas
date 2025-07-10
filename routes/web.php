@@ -29,6 +29,7 @@ Route::get('/entidades/listar', [EntidadController::class, 'listar'])->name('ent
 Route::get('/productos/listar', [ProductoController::class, 'listar'])->name('productos.listar');
 
 Route::get('/fichadas/listar', [FichadaController::class, 'listar'])->name('fichadas.listar');
+Route::get('/fichadas/exportar', [FichadaController::class, 'exportar'])->name('fichadas.exportar');
 Route::get('/fichadas/crear', [FichadaController::class, 'crear'])->name('fichadas.crear');
 Route::post('/fichadas', [FichadaController::class, 'guardar'])->name('fichadas.guardar');
 Route::get('/fichadas/{id}/editar', [FichadaController::class, 'editar'])->name('fichadas.editar');

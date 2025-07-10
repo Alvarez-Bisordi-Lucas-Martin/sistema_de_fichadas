@@ -18,6 +18,26 @@ class FichadaController extends Controller
         ]);
     }
 
+    public function exportar()
+    {
+        $fichadas = Fichada::with('producto')->get();
+
+        $exportData = $fichadas->map(function($fichada) {
+            return [
+                'id' => $fichada->id,
+                'producto_id' => $fichada->producto->id,
+                'producto_nombre' => $fichada->producto->nombre,
+                'fecha_hora' => $fichada->fecha_hora,
+                'tipo' => $fichada->tipo,
+                'imagen' => $fichada->imagen ? base64_encode($fichada->imagen) : null,
+                'creada' => $fichada->created_at,
+                'modificada' => $fichada->updated_at
+            ];
+        });
+
+        return response()->json($exportData)->header('Content-Disposition', 'attachment; filename="fichadas.json"');
+    }
+
     public function crear()
     {
         $productos = Producto::all();

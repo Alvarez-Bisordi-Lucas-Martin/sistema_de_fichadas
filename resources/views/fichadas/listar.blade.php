@@ -10,8 +10,11 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-end mb-3">
-                            <a href="{{ route('fichadas.crear') }}" class="btn btn-primary">
+                            <a href="{{ route('fichadas.crear') }}" class="btn btn-primary me-2">
                                 <i class="fas fa-plus me-2"></i>Nueva
+                            </a>
+                            <a href="{{ route('fichadas.exportar') }}" class="btn btn-success">
+                                <i class="fa-solid fa-file-export me-2"></i>Exportar
                             </a>
                         </div>
 

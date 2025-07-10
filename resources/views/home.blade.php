@@ -10,7 +10,7 @@
                 <div class="card chart shadow-sm">
                     <div class="card-body d-flex align-items-center">
                         <div class="icon-wrapper me-3">
-                            <i class="fas fa-users"></i>
+                            <i class="fa-solid fa-user"></i>
                         </div>
                         <div>
                             <h6 class="text-muted mb-1">Usuarios</h6>
@@ -24,7 +24,7 @@
                 <div class="card chart shadow-sm">
                     <div class="card-body d-flex align-items-center">
                         <div class="icon-wrapper me-3">
-                            <i class="fa-solid fa-users-viewfinder"></i>
+                            <i class="fa-solid fa-user-nurse"></i>
                         </div>
                         <div>
                             <h6 class="text-muted mb-1">Usuarios Verificados</h6>

@@ -65,13 +65,14 @@
                                                 {{ $producto->id }}
                                             </td>
                                             <td>
-                                                {{ $producto->nombre }}
+                                                <i class="fa-brands fa-product-hunt fa-xl"></i>
+                                                <span>{{ $producto->nombre }}</span>
                                             </td>
                                             <td>
                                                 {{ $producto->descripcion ?? '-' }}
                                             </td>
                                             <td>
-                                                <i class="fas fa-building fa-xl"></i>
+                                                <i class="fa-solid fa-building fa-xl"></i>
                                                 <span>{{ $producto->entidad->nombre }}</span>
                                             </td>
                                             <td>

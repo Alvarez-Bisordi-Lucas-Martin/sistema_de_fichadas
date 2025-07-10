@@ -65,7 +65,8 @@
                                                 {{ $usuario->id }}
                                             </td>
                                             <td>
-                                                {{ $usuario->name }}
+                                                <i class="fa-solid fa-user fa-xl"></i>
+                                                <span>{{ $usuario->name }}</span>
                                             </td>
                                             <td>
                                                 {{ $usuario->email }}

@@ -65,7 +65,7 @@
                                                 {{ $entidad->id }}
                                             </td>
                                             <td>
-                                                <i class="fas fa-building fa-xl"></i>
+                                                <i class="fa-solid fa-building fa-xl"></i>
                                                 <span>{{ $entidad->nombre }}</span>
                                             </td>
                                             <td>

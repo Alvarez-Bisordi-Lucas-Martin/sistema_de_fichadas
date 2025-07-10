@@ -31,13 +31,13 @@
 
                 <li class="nav-item">
                     <a class="nav-link{{ (isset($sidebar_active) && $sidebar_active === 'usuarios') ? ' active' : '' }}" href="{{ route('usuarios.listar') }}" aria-current="page">
-                        <i class="fa-solid fa-user-alt"></i>
+                        <i class="fa-solid fa-user"></i>
                         <span class="item-name">Usuarios</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link{{ (isset($sidebar_active) && $sidebar_active === 'grupos') ? ' active' : '' }}" href="{{ route('grupos.listar') }}" aria-current="page">
-                        <i class="fa-solid fa-user-group"></i>
+                        <i class="fa-solid fa-users"></i>
                         <span class="item-name">Grupos</span>
                     </a>
                 </li>
@@ -49,13 +49,13 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link{{ (isset($sidebar_active) && $sidebar_active === 'productos') ? ' active' : '' }}" href="{{ route('productos.listar') }}" aria-current="page">
-                        <i class="fa-solid fa-box"></i>
+                        <i class="fa-brands fa-product-hunt"></i>
                         <span class="item-name">Productos</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link{{ (isset($sidebar_active) && $sidebar_active === 'fichadas') ? ' active' : '' }}" href="{{ route('fichadas.listar') }}" aria-current="page">
-                        <i class="fa-solid fa-clock"></i>
+                        <i class="fa-solid fa-address-card"></i>
                         <span class="item-name">Fichadas</span>
                     </a>
                 </li>

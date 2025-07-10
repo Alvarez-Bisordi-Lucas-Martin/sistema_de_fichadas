@@ -69,12 +69,14 @@
                                                 {{ $fichada->id }}
                                             </td>
                                             <td>
-                                                {{ $fichada->producto->nombre }}
+                                                <i class="fa-brands fa-product-hunt fa-xl"></i>
+                                                <span>{{ $fichada->producto->nombre }}</span>
                                             </td>
                                             <td>
-                                                {{ $fichada->fecha_hora->format('Y/m/d H:i:s') }}
+                                                <i class="fa-solid fa-address-card fa-xl"></i>
+                                                <span>{{ $fichada->fecha_hora->format('Y/m/d H:i:s') }}</span>
                                             </td>
-                                            <td class="text-uppercase">
+                                            <td class="text-capitalize">
                                                 {{ $fichada->tipo }}
                                             </td>
                                             <td class="text-center">

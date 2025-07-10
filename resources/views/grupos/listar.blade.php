@@ -65,13 +65,16 @@
                                                 {{ $grupo->id }}
                                             </td>
                                             <td>
-                                                {{ $grupo->nombre }}
+                                                <i class="fa-solid fa-users fa-xl"></i>
+                                                <span>{{ $grupo->nombre }}</span>
                                             </td>
                                             <td>
-                                                {{ $grupo->usuarios->count() }}
+                                                <i class="fa-solid fa-user fa-xl"></i>
+                                                <span>{{ $grupo->usuarios->count() }}</span>
                                             </td>
                                             <td>
-                                                {{ $grupo->permisos->count() }}
+                                                <i class="fa-solid fa-key fa-xl"></i>
+                                                <span>{{ $grupo->permisos->count() }}</span>
                                             </td>
                                             <td>
                                                 {{ $grupo->created_at->format('Y/m/d H:i:s') }}

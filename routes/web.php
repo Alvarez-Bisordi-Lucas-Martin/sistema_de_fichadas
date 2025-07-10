@@ -18,6 +18,11 @@ Route::put('/usuarios/{id}', [UserController::class, 'actualizar'])->name('usuar
 Route::delete('/usuarios/{id}', [UserController::class, 'eliminar'])->name('usuarios.eliminar');
 
 Route::get('/grupos/listar', [GrupoController::class, 'listar'])->name('grupos.listar');
+Route::get('/grupos/crear', [GrupoController::class, 'crear'])->name('grupos.crear');
+Route::post('/grupos', [GrupoController::class, 'guardar'])->name('grupos.guardar');
+Route::get('/grupos/{id}/editar', [GrupoController::class, 'editar'])->name('grupos.editar');
+Route::put('/grupos/{id}', [GrupoController::class, 'actualizar'])->name('grupos.actualizar');
+Route::delete('/grupos/{id}', [GrupoController::class, 'eliminar'])->name('grupos.eliminar');
 
 Route::get('/entidades/listar', [EntidadController::class, 'listar'])->name('entidades.listar');
 
